@@ -23,4 +23,7 @@ RUN set -x \
 	&& apt-get purge -y --auto-remove ca-certificates wget \
 	&& apt-get autoclean && apt-get --purge -y autoremove \
 	&& java -version
+RUN set -x \
+	&& echo $JAVA_HOME
+
 
