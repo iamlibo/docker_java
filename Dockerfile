@@ -18,6 +18,7 @@ RUN set -x \
         && cd /opt/java/ \
 	&& tar -zxf ./jdk-"${JAVA_VERSION_MAJOR}"u"${JAVA_VERSION_MINOR}"-linux-x64.tar.gz -C ${JAVA_INSTALL_DIR} \
 	&& rm -rf ./jdk-"${JAVA_VERSION_MAJOR}"u"${JAVA_VERSION_MINOR}"-linux-x64.tar.gz \
+	&& rm -rf ${JAVA_HOME}/*src.zip \
 	&& update-alternatives --install /usr/bin/java java ${JAVA_HOME}/bin/java 100 \
 	&& update-alternatives --install /usr/bin/javac javac ${JAVA_HOME}/bin/javac 100 \
 	&& apt-get purge -y --auto-remove ca-certificates wget \
