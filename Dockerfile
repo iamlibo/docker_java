@@ -14,7 +14,8 @@ RUN set -x \
 	&& mkdir /opt/java/ \
 	&& cd /opt/java/ \
 	&& wget --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/"${JAVA_VERSION_MAJOR}"u"${JAVA_VERSION_MINOR}"-b"${JAVA_VERSION_BUILD}"/jdk-"${JAVA_VERSION_MAJOR}"u"${JAVA_VERSION_MINOR}"-linux-x64.tar.gz
-RUN set -x \	
+RUN set -x \
+        && cd /opt/java/ \
 	&& tar -zxf ./jdk-"${JAVA_VERSION_MAJOR}"u"${JAVA_VERSION_MINOR}"-linux-x64.tar.gz -C ${JAVA_INSTALL_DIR} \
 	&& rm -rf ./jdk-"${JAVA_VERSION_MAJOR}"u"${JAVA_VERSION_MINOR}"-linux-x64.tar.gz \
 	&& update-alternatives --install /usr/bin/java java ${JAVA_HOME}/bin/java 100 \
