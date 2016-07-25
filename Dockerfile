@@ -21,6 +21,6 @@ RUN set -x \
 	&& update-alternatives --install /usr/bin/java java ${JAVA_HOME}/bin/java 100 \
 	&& update-alternatives --install /usr/bin/javac javac ${JAVA_HOME}/bin/javac 100 \
 	&& apt-get purge -y --auto-remove ca-certificates wget \
-	&& apt-get autoclean && apt-get --purge -y autoremove
+	&& apt-get autoclean && apt-get --purge -y autoremove \
 	&& java -version
 
